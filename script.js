@@ -1,210 +1,128 @@
-document.addEventListener("DOMContentLoaded", function() {  // Sample data for news articles
-   
-
-     // Register form submit event listener
-     var registrationForm = document.getElementById("registrationForm");
-     if (registrationForm) {
-         registrationForm.addEventListener("submit", function(event) {
-             event.preventDefault();
-             var formData = new FormData(registrationForm);
-             var userData = {};
-             formData.forEach(function(value, key) {
-                 userData[key] = value;
-             });
-             // Here you would typically send the user data to your backend for registration
-             console.log("User data:", userData);
-            }); var newsData = [
-                { title: "Title of News Article 1", content: "Content of News Article 1", link: "https://example.com/article1" },
-                { title: "Title of News Article 2", content: "Content of News Article 2", link: "https://example.com/article2" },
-                { title: "Title of News Article 3", content: "Content of News Article 3", link: "https://example.com/article3" },
-                // Add more news articles as needed
-            ];
+const movies = [
+    {
+        title: "The Shawshank Redemption",
+        director: "Frank Darabont",
+        year: 1994,
+        image: "GPS-squash-1663947185.png",
+        description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
         
-            // Function to render news articles
-            function renderNews() {
-                newsData.forEach(function(article) {
-                    var newsItem = document.createElement("div");
-                    newsItem.classList.add("news-item");
-                    newsItem.innerHTML = `
-                        <h2>${article.title}</h2>
-                        <p>${article.content}</p>
-                        <a href="${article.link}" target="_blank">Read more</a>
-                    `;
-                    newsList.appendChild(newsItem);
-                });
-            }
-        
-            // Render news articles on page load
-            renderNews();
-        
+    },
+    {
+        title: "The Godfather",
+        director: "Francis Ford Coppola",
+        year: 1972,
+        image: "GPS-squash-1663947185.png",
+        description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    },
+    // Add more movie objects as needed
+];
 
-     }
+const movieList = document.getElementById('movieList');
 
+function renderMovies() {
+    movieList.innerHTML = '';
+    movies.forEach((movie) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
 
- 
-     // Display user profile
-     var userProfile = document.getElementById("userProfile");
-     if (userProfile) {
-         // Here you would typically fetch user profile data from your backend and update the HTML accordingly
-         userProfile.innerHTML = "<p>User profile data will be displayed here.</p>";
-     }
- });
-    // Code to execute when the DOM content is loaded
+        const image = document.createElement('img');
+        image.src = movie.image;
+        image.alt = movie.title;
+        card.appendChild(image);
 
-    // Function to toggle the responsive menu
-    function toggleMenu() {
-        var x = document.getElementById("navbar");
-        if (x.className === "navbar") {
-            x.className += " responsive";
-        } else {
-            x.className = "navbar";
-        }
-    }
-    // Function to handle search
-    function handleSearch() {
-        var searchInput = document.getElementById("searchInput").value;
-        // Perform search functionality, for now let's just log the input
-        console.log("Search query: " + searchInput);
-    }
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card-content');
 
-    // Add event listener to the search button
-    var searchBtn = document.getElementById("searchBtn");
-    if (searchBtn) {
-        searchBtn.addEventListener("click", handleSearch);
-    }
+        const title = document.createElement('h2');
+        title.textContent = movie.title;
+        cardContent.appendChild(title);
 
+        const director = document.createElement('p');
+        director.textContent = "Director: " + movie.director;
+        cardContent.appendChild(director);
 
-var facebookBtn = document.getElementById("facebookBtn");
-    var twitterBtn = document.getElementById("twitterBtn");
-    var linkedinBtn = document.getElementById("linkedinBtn");
+        const year = document.createElement('p');
+        year.textContent = "Year: " + movie.year;
+        cardContent.appendChild(year);
 
-    // Function to share on Facebook
-    function shareOnFacebook() {
-        var url = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(window.location.href);
-        window.open(url, "_blank");
-    }
+        const description = document.createElement('p');
+        description.textContent = movie.description;
+        cardContent.appendChild(description);
 
-    // Function to share on Twitter
-    function shareOnTwitter() {
-        var url = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(window.location.href);
-        window.open(url, "_blank");
-    }
-
-    // Function to share on LinkedIn
-    function shareOnLinkedIn() {
-        var url = "https://www.linkedin.com/shareArticle?url=" + encodeURIComponent(window.location.href);
-        window.open(url, "_blank");
-    }
-
-    // Add event listeners to social buttons
-    facebookBtn.addEventListener("click", shareOnFacebook);
-    twitterBtn.addEventListener("click", shareOnTwitter);
-    linkedinBtn.addEventListener("click", shareOnLinkedIn);
-
-
-
-
-
-    // Add event listener to the menu icon
-    var menuIcon = document.querySelector(".icon");
-    if (menuIcon) {
-        menuIcon.addEventListener("click", toggleMenu);
-    } var overallRating = document.getElementById("overallRating");
-    var userStars = document.querySelectorAll(".stars .star");
-    var submitRatingBtn = document.getElementById("submitRating");
-    var reviewList = document.getElementById("reviewList");
-    var newReviewInput = document.getElementById("newReview"); // Initialize user's rating to 0
-    var userRating = 0;
-
-    // Function to handle user's rating
-    function handleRating(event) {
-        userRating = parseInt(event.target.getAttribute("data-value"));
-        highlightStars(userRating);
-    }
-
-    // Function to highlight stars based on user's rating
-    function highlightStars(rating) {
-        userStars.forEach(function(star, index) {
-            if (index < rating) {
-                star.classList.add("active");
-            } else {
-                star.classList.remove("active");
-            }
-        });
-    }
-
-    // Add event listeners to stars for user's rating
-    userStars.forEach(function(star) {
-        star.addEventListener("click", handleRating);
+        card.appendChild(cardContent);
+        movieList.appendChild(card);
     });
+}
 
-    // Function to submit user's rating
-    submitRatingBtn.addEventListener("click", function() {
-        // Here you would typically send the user's rating to your backend
-        // For demonstration, we'll just update the overall rating on the frontend
-        overallRating.textContent = userRating;
-    });
-    // Add event listeners to stars for rating
-    ratingStars.forEach(function(star) {
-        star.addEventListener("click", handleRating);
-    });
+document.addEventListener('DOMContentLoaded', renderMovies);
 
-    // Function to submit user's review
-    submitReviewBtn.addEventListener("click", function() {
-        var reviewText = newReviewInput.value;
-        if (reviewText.trim() !== "") {
-            // Here you would typically send the user's review to your backend
-            // For demonstration, we'll just display the review on the frontend
-            var reviewItem = document.createElement("div");
-            reviewItem.classList.add("review");
-            reviewItem.textContent = reviewText;
-            reviewList.appendChild(reviewItem);
-            newReviewInput.value = "";
-        }
-    
+
+//cta javascript 
+
+const exploreButton = document.getElementById('exploreButton');
+
+exploreButton.addEventListener('click', () => {
+    // Scroll to the movie list section smoothly
+    document.getElementById('movieList').scrollIntoView({ behavior: 'smooth' });
 });
-    var submitReviewBtn = document.getElementById("submitReview"); 
 
 
 
+//for reviews and ratings 
 
- var newsList = document.getElementById("newsList");
+const userReviewsContainer = document.getElementById('userReviews');
+const reviewForm = document.getElementById('reviewForm');
+const userNameInput = document.getElementById('userName');
+const userCommentInput = document.getElementById('userComment');
+const userRatingInput = document.getElementById('userRating');
 
+reviewForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const userName = userNameInput.value.trim();
+    const userComment = userCommentInput.value.trim();
+    const userRating = parseInt(userRatingInput.value);
 
-
-    // Sample data for movies
-    var movieData = [
-        { title: "Movie Title 1", year: 2021, genre: "Action", director: "Director 1", link: "#" },
-        { title: "Movie Title 2", year: 2020, genre: "Comedy", director: "Director 2", link: "#" },
-        { title: "Movie Title 3", year: 2019, genre: "Drama", director: "Director 3", link: "#" },
-        // Add more movies as needed
-    ];
-
-    // Function to render movies
-    function renderMovies() {
-        movieData.forEach(function(movie) {
-            var movieItem = document.createElement("div");
-            movieItem.classList.add("movie-item");
-            movieItem.innerHTML = `
-                <h2>${movie.title}</h2>
-                <p><strong>Year:</strong> ${movie.year}</p>
-                <p><strong>Genre:</strong> ${movie.genre}</p>
-                <p><strong>Director:</strong> ${movie.director}</p>
-                <a href="${movie.link}" target="_blank">More details</a>
-            `;
-            movieList.appendChild(movieItem);
-        });
+    if (!userName || !userComment || !userRating || userRating < 1 || userRating > 10) {
+        alert("Please provide a valid name, comment, and rating (1-10).");
+        return;
     }
 
-    // Render movies on page load
-    renderMovies();
+    const newReview = document.createElement('div');
+    newReview.classList.add('user-review');
+    newReview.innerHTML = `
+        <strong>${userName}</strong> - Rating: ${userRating}<br>
+        ${userComment}
+    `;
+    userReviewsContainer.appendChild(newReview);
 
-  
+    // Clear the form inputs after submitting the review
+    userNameInput.value = '';
+    userCommentInput.value = '';
+    userRatingInput.value = '';
+});
+
+//for contact us page
+
+const contactForm = document.getElementById('contactForm');
+const responseMessage = document.getElementById('responseMessage');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    // Example: Send form data to a server or display a confirmation message
+    responseMessage.innerHTML = `
+        <p>Thank you, ${name}, for contacting us!</p>
+        <p>We will respond to your message at ${email} as soon as possible.</p>
+    `;
+
+    // Clear the form inputs after submission
+    contactForm.reset();
+});
 
 
-   
-
-
-
-
-  

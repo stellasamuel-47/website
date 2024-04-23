@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <h1>Welcome to  Stella Movie Website</h1>
+        <nav>
+            <input type="text" id="searchInput" placeholder="Search movies...">
+            <button id="searchButton">Search</button>
+        </nav>
+    </header>
+
+    <h1>Contact Us</h1>
+        <p>If you have any questions or feedback, feel free to contact us using the form below.</p>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="responseMessage"></div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

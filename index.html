@@ -4,107 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Website</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-                
- <body> 
-  <header>
-
-     <h1>Stella's Movie Website</h1>
+<body>
+    <header>
+        <div class="top-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <h1>Welcome to  Stella Movie Website</h1>
         <nav>
-            
-                        <ul>
-                            <li><a href="#" class="active">Home</a></li>
-                            <li><a href="#">Movies</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-        </nav>
-    </header>         
-                
-            <div class="container">
-                <h1>Latest News</h1>
-                <div id="newsList" class="ne<h1>Movie Title</h1>
-                  
-
-            </div>
-            
-
-
-            <div class="search-container">
-                <input id="searchInput" type="text" placeholder="Search...">
-                <button id="searchBtn" type="button">Search</button>
-
-
-                <h1>Register</h1>
-                <form id="registrationForm">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <button type="submit">Register</button>
-                </form>
-
-                <h1>Popular Movies</h1>
-
-                <div id="movieList" class="movie- 
-               
-
-                
-
-                <h1>User Profile</h1>
-                
-                        <div id="userProfile">
-                            <p>No user profile available.</p>
-
-
-                            <div id="socialButtons">
-                                <button id="facebookBtn">Share on Facebook</button>
-                                <button id="twitterBtn">Share on Twitter</button>
-                                <button id="linkedinBtn">Share on LinkedIn</button>
-                            </div>           
-                            <div id="ratings">
-                                <p>Overall rating: <span id="overallRating">0</span></p>
-                                <div id="userRating" class="user-rating">
-                                    Your Rating:
-                                    <span class="stars" id="userStars">
-                                        <span class="star" data-value="1">&#9733;</span>
-                                        <span class="star" data-value="2">&#9733;</span>
-                                        <span class="star" data-value="3">&#9733;</span>
-                                        <span class="star" data-value="4">&#9733;</span>
-                                        <span class="star" data-value="5">&#9733;</span>
-                                    </span>
-                                </div>
-                                <button id="submitRating">Submit Rating</button>
-                            </div>
-                            
-                            <div id="reviews">
-                                <h2>Reviews</h2>
-                                <div id="reviewList"></div>
-                                <textarea id="newReview" placeholder="Write your review here"></textarea>
-                                <button id="submitReview">Submit Review</button>
-                            </div>               
-
-
-            </div>
+            <input type="text" id="searchInput" placeholder="Search movies...">
+            <button id="searchButton">Search</button>
         </nav>
     </header>
-    <main>
-        <section id="featured-movies">
-            <!-- Featured movies will be displayed here -->
-        </section>
 
-        <section id="movies">
-            <!-- Other movies will be displayed here -->
-        </section>
+<!--Cta goes here-->
+<div class="cta-container">
+    <p>Ready to explore amazing movies?</p>
+    <button id="exploreButton">Explore Now</button>
+</div>
+
+
+    <main id="movieList">
+        <!-- Movie cards will be added here using JavaScript -->
     </main>
 
     <footer>
-        <p>&copy; 2024 Movie Website. All rights reserved.</p>
+        <!-- Other footer content -->
+    
+        <div class="user-reviews">
+            <h2>User Reviews</h2>
+            <div id="userReviews"></div>
+            <form id="reviewForm">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" required>
+                <label for="userComment">Comment:</label>
+                <textarea id="userComment" rows="4" required></textarea>
+                <label for="userRating">Rating:</label>
+                <input type="number" id="userRating" min="1" max="10" required>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
     </footer>
+    
 
     <script src="script.js"></script>
 </body>

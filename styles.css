@@ -1,0 +1,241 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    width: calc(50% - 40px); /* Adjust width as needed */
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Display cards side by side */
+    vertical-align: top; /* Align cards at the top */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.card img {
+ 
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Set a maximum height for the images */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card h2 {
+    margin: 5px 0;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+/* Add styles for the top menu */
+.top-menu {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.top-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.top-menu ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.top-menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.top-menu ul li a:hover {
+    background-color: #555;
+}
+
+
+
+/* Existing styles for the navigation bar remain unchanged */
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+header input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+header button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #0056b3;
+}
+
+.cta-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.cta-container p {
+    margin-bottom: 10px;
+}
+
+.cta-container button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cta-container button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.card p {
+    margin: 5px 0;
+}
+
+.reviews {
+    margin-top: 10px;
+}
+
+.review-item {
+    margin-bottom: 5px;
+}
+
+.user-reviews {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.user-reviews h2 {
+    margin-bottom: 10px;
+}
+
+#reviewForm label,
+#reviewForm input,
+#reviewForm textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#reviewForm button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#reviewForm button:hover {
+    background-color: #0056b3;
+}
+
+
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+.contact-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#responseMessage {
+    margin-top: 20px;
+}
